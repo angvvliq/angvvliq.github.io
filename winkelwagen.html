@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>QuickBlade</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <body>
+        <nav class="navbar">
+        <div class="logo">Quickblade</div>
+
+        <ul class="nav-links">
+         <li><a href="index.html">Home</a></li>
+         <li><a href="producten.html">Producten</a></li>
+         <li><a href="#">Contact</a></li>
+         <li><a href="winkelwagen.html">Winkelwagen</a></li>
+         </ul>
+        </nav>
+<div id="titelwinkelwagen">
+<h1>Winkelwagen</h1>
+</div>
+
+<ul id="lijst"></ul>
+<p id="totaal"></p>
+
+<button onclick="leegWinkelwagen()">Winkelwagen leegmaken</button>
+<br><br>
+
+<div id="terug-naar-prod">
+<a href="producten.html">Terug naar producten</a>
+</div>
+
+<script>
+let winkelwagen = JSON.parse(localStorage.getItem("winkelwagen")) || [];
+let lijst = document.getElementById("lijst");
+let totaalPrijs = 0;
+
+if (winkelwagen.length === 0) {
+  lijst.innerHTML = "<li>Uw winkelwagen is leeg.</li>";
+} else {
+  winkelwagen.forEach((product, index) => {
+    let li = document.createElement("li");
+    li.innerHTML = `
+      ${product.naam} –
+      €${product.prijs.toFixed(2)} × ${product.aantal}
+      <button onclick="verwijder(${index})">X</button>
+    `;
+    lijst.appendChild(li);
+    totaalPrijs += product.prijs * product.aantal;
+  });
+
+  document.getElementById("totaal").innerText =
+    "Totaal: €" + totaalPrijs.toFixed(2);
+}
+
+function verwijder(index) {
+  let winkelwagen = JSON.parse(localStorage.getItem("winkelwagen")) || [];
+
+  if (winkelwagen[index].aantal > 1) {
+    winkelwagen[index].aantal--;
+  } else {
+    winkelwagen.splice(index, 1);
+  }
+
+  localStorage.setItem("winkelwagen", JSON.stringify(winkelwagen));
+  location.reload();
+}
+
+function leegWinkelwagen() {
+  localStorage.removeItem("winkelwagen");
+  location.reload();
+}
+</script>
+
+<script src="cart.js"></script>
+
+</body>
+</html>

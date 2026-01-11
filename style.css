@@ -1,0 +1,230 @@
+body {
+    margin: 0;
+    
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #132f6c;
+    color: #ffffff;
+    padding: 15px 30px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0; 
+    font-family:'Lexend', sans-serif;   
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    ;
+}
+.nav-links a:hover {
+    color:#b7ddff
+}
+
+.logo {
+    font-family: 'Bebas Neue', cursive;
+    font-size:50px;
+    font-weight:500px;
+}
+
+.search-wrapper {
+    display: flex;
+}
+
+.home-page {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Lexend', sans-serif;
+}
+
+.home-page {
+    margin-top: 0px;
+    padding: 0px;
+}
+
+.products h1 {
+    font-family: 'Lexend', sans-serif;
+    text-align: left;
+    color: #132f6c;
+    margin-left: 20px;
+}
+
+.aanbod {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    height: 50vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.aanbod img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    
+
+}
+
+.de-producten img {
+    border-radius: 20px;
+}
+
+.de-producten {
+    list-style: none;
+    font-family: 'Lexend', sans-serif;;
+}
+
+.de-producten li {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+}
+
+.de-producten button {
+    background-color: #132f6c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lexend', sans-serif;
+}
+
+.de-producten button:hover {
+    background-color:#224796;
+    box-shadow: 0 4px 8px #00000033;
+}
+
+.de-producten a {
+    color: white;
+    text-decoration: none;
+}
+
+.product-pagina-plaatje {
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.product-pagina-plaatje img {
+    border-radius: 20px;
+}
+
+.product-pagina-omschrijving {
+    font-family: 'Lexend', sans-serif;
+    margin-top: 30px;
+    margin-left: 30px;
+    max-width: 600px;
+}
+
+.product {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.product-pagina-omschrijving button {
+    margin-top: 20px;
+    background-color: #132f6c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lexend', sans-serif;
+}
+
+#winkelwagen-lijst,
+#lijst {
+    list-style: none;
+    font-family: Lexend, sans-serif;
+    text-align: left;
+    margin-left: 10px;
+    padding-left: 0px;
+}
+
+#titelwinkelwagen {
+    font-family: 'Lexend', sans-serif;
+    text-align: left;
+    color: #132f6c;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+button {
+    margin-left: 10px;
+    background-color: #132f6c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lexend', sans-serif;
+}
+
+#totaal {
+    font-family: 'Lexend', sans-serif;
+    text-align: left;
+    color: #132f6c;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#terug-naar-prod a {
+    margin-left: 10px;
+    color: #132f6c;
+    text-decoration: none;
+    padding: 0px;
+    font-family: 'Lexend', sans-serif;
+}
+
+#terug-naar-prod a:hover {
+    text-decoration: #224796;
+    text-shadow: #00000033;
+}
+
+.container {
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+    margin: 30px 0 0 30px;
+    max-width: 700px;
+}
+
+.box-head {
+    background-color: #132f6c;
+    padding: 15px;
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.box-text {
+    margin-top: 10px;
+    line-height: 1.5;
+    margin-left: 5px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-out, padding 0.3s ease-out;
+    transform-origin: top;
+}
+.box.active .box-text {
+    display: block;
+    height: auto;
+    transform: translateY(10px);
+}

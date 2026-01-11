@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>QuickBlade</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lexend:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar">
+        <div class="logo">Quickblade</div>
+
+        <ul class="nav-links">
+         <li><a href="index.html">Home</a></li>
+         <li><a href="producten.html">Producten</a></li>
+         <li><a href="accordion.html">Contact</a></li>
+         <li><a href="winkelwagen.html">Winkelwagen (<span id="cart-count">0</span>) </a></li>
+         </ul>
+        </nav>
+        <div class="product">
+        <div class="product-pagina-plaatje">
+            <img src="images/quickblade-original.png"
+            alt="Quickblade Original"
+            width="375px"
+            height="500px">
+        </div>
+
+        <div class="product-pagina-omschrijving">
+            <h1>QuickBlade Original</h1>
+            <p>De QuickBlade Original is het ultieme elektrische mes voor al uw snijbehoeften. Met zijn krachtige motor en scherpe messen maakt dit mes het snijden van vlees, groenten en brood een moeiteloze taak. Het ergonomische ontwerp zorgt voor een comfortabele grip, terwijl de veiligheidsvoorzieningen ervoor zorgen dat u met vertrouwen kunt snijden. Of u nu een professionele chef-kok bent of gewoon thuis kookt, de QuickBlade Original is de perfecte aanvulling op uw keukenarsenaal.</p>
+            <h2>Prijs: €34,99</h2>
+            <button onclick="voegToeAanWinkelwagen()">Voeg toe aan winkelwagen</button>
+        </div>
+        
+        </div>
+            <div class="container">
+            <div class="box">
+                <div class="box-head">Productspecificaties</div>
+                <div class="box-text">blablabla</div>
+            </div>
+            </div>
+
+<script>
+function voegToeAanWinkelwagen() {
+  let winkelwagen = JSON.parse(localStorage.getItem("winkelwagen")) || [];
+
+  let bestaand = winkelwagen.find(p => p.naam === "QuickBlade Original");
+
+  if (bestaand) {
+    bestaand.aantal++;
+  } else {
+    winkelwagen.push({
+      naam: "QuickBlade Original",
+      prijs: 34.99,
+      aantal: 1
+    });
+  }
+
+  localStorage.setItem("winkelwagen", JSON.stringify(winkelwagen));
+  updateTeller();
+  alert("Toegevoegd aan winkelwagen!");
+}
+
+function updateTeller() {
+  let winkelwagen = JSON.parse(localStorage.getItem("winkelwagen")) || [];
+  let totaalAantal = winkelwagen.reduce((sum, p) => sum + p.aantal, 0);
+  document.getElementById("cart-count").innerText = totaalAantal;
+}
+
+updateTeller();
+</script>
+
+<script src="cart.js"></script>
+
+<script>
+
+var boxHeads = document.querySelectorAll('.box-head');
+
+
+boxHeads.forEach(function(boxHead) {
+    boxHead.addEventListener('click', function() {
+      
+        var box = this.closest('.box');
+        box.classList.toggle('active');
+
+        if (box.classList.contains('active')) {
+    var boxText = box.querySelector('.box-text');
+    boxText.scrollIntoView({ behavior: 'smooth' }); // Scroll naar de box-text
+}
+    });
+});
+</script>
+
+        </body>
+        </html>
